@@ -1,0 +1,4 @@
+nicegui
+openai
+requests
+pyinstaller

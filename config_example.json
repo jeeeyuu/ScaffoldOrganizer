@@ -1,0 +1,20 @@
+{
+  "openai_api_key": "YOUR_OPENAI_API_KEY",
+  "openai_base_url": "https://api.openai.com/v1",
+  "db_path": "./data/app.db",
+  "export_dir": "./exports",
+  "export_filename_format": "ScaffoldOrganizer_%Y-%m-%d_%H%M.md",
+  "prompt_id": "YOUR_PROMPT_ID",
+  "prompt_variables": {
+    "user_name": "사용자",
+    "today_date": "",
+    "research_focus": "미정",
+    "output_format": "노션",
+    "tool_preferences": "없음",
+    "meeting_time": "미정"
+  },
+  "default_model": "gpt-4.1",
+  "runtime_overrides": "",
+  "window_width": 600,
+  "window_height": 400
+}
