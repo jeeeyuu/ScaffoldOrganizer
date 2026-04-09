@@ -1,15 +1,20 @@
 # -*- mode: python ; coding: utf-8 -*-
 
 import sys
+from PyInstaller.utils.hooks import collect_data_files, copy_metadata
 
 _icon = "icon.ico" if sys.platform == "win32" else "icon.icns"
+
+_datas = []
+_datas += collect_data_files('nicegui')
+_datas += copy_metadata('nicegui')
 
 a = Analysis(
     ['main.py'],
     pathex=[],
     binaries=[],
-    datas=[],
-    hiddenimports=[],
+    datas=_datas,
+    hiddenimports=['nicegui'],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
