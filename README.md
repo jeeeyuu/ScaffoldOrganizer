@@ -1,5 +1,7 @@
 # ScaffoldOrganizer (Developer Guide)
 
+![ScaffoldOrganizer Screenshot](docs/screenshot.png)
+
 로컬에서 실행되는 브레인 덤프 → 작업 구조화 앱입니다. OpenAI Prompt Asset 기반 Responses API로 자유 형식 입력을 구조화하고, Notion 친화 Markdown으로 내보냅니다.
 
 ## 프로젝트 목표
@@ -87,6 +89,8 @@ python main.py
 | `runtime_overrides` | 시스템 프롬프트에 추가할 지시문 |
 | `window_width` | 앱 창 가로 크기 (px) |
 | `window_height` | 앱 창 세로 크기 (px) |
+| `native` | 네이티브 창 모드 (false면 브라우저에서 열림) |
+| `frameless` | OS 타이틀 바 제거 후 커스텀 타이틀 바 사용 |
 
 ### prompt_variables
 `prompt_variables` 내 값은 OpenAI Prompt Asset의 `{{변수명}}` 플레이스홀더에 주입됩니다.  
@@ -115,6 +119,17 @@ python main.py
 ```
 
 백슬래시(`\\`) 대신 슬래시(`/`)를 써도 Windows에서 정상 동작합니다.
+
+### Frameless 모드
+
+`"frameless": true`로 설정하면 OS의 두꺼운 타이틀 바가 사라지고, 24px 짜리 슬레이트 색 커스텀 타이틀 바가 그 자리에 표시됩니다.
+
+- **드래그**: 타이틀 바 영역을 잡고 창을 자유롭게 이동
+- **─** : 최소화 (`webview.minimize()`)
+- **✕** : 종료 (`app.shutdown()`)
+- 최대화 버튼은 제공하지 않습니다
+
+`"frameless": false` (기본값)일 때는 일반적인 OS 타이틀 바가 사용됩니다.
 
 ## 데이터베이스
 

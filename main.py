@@ -33,6 +33,7 @@ def main() -> None:
     )
     if config.native:
         run_kwargs["window_size"] = (config.window_width, config.window_height)
+        run_kwargs["frameless"] = config.frameless
     ui.run(**run_kwargs)
 
 

@@ -17,5 +17,6 @@
   "runtime_overrides": "",
   "window_width": 600,
   "window_height": 400,
-  "native": true
+  "native": true,
+  "frameless": true
 }

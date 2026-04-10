@@ -7,7 +7,7 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
 
-from nicegui import run, ui
+from nicegui import app, run, ui
 
 from . import db
 from .config import AppConfig, load_config
@@ -358,9 +358,21 @@ def build_ui(config: AppConfig | None = None) -> None:
         <style>
           .app-shell { max-width: 600px; margin: 0 auto; }
           .tabulator { font-size: 12px; background-color: #ffffff; }
+          .title-bar { -webkit-app-region: drag; user-select: none; }
+          .title-bar button { -webkit-app-region: no-drag; }
         </style>
         """
     )
+
+    if state.config.frameless:
+        async def _minimize() -> None:
+            if app.native.main_window is not None:
+                await app.native.main_window.minimize()
+
+        with ui.row().classes("title-bar w-full items-center bg-slate-700 text-white px-2").style("height:24px;gap:0"):
+            ui.label("ScaffoldOrganizer").classes("text-xs flex-grow")
+            ui.button("─", on_click=_minimize).props("dense flat round size=xs").classes("text-white")
+            ui.button("✕", on_click=lambda: app.shutdown()).props("dense flat round size=xs").classes("text-white")
 
     with ui.column().classes("app-shell w-full gap-1 px-2 pt-2"):
         with ui.row().classes("w-full items-start gap-2"):

@@ -19,6 +19,7 @@ class AppConfig:
     window_width: int = 600
     window_height: int = 400
     native: bool = True
+    frameless: bool = False
 
 
 APP_NAME = "ScaffoldOrganizer"
@@ -54,6 +55,7 @@ def _default_config_data() -> dict:
         "window_width": 600,
         "window_height": 400,
         "native": True,
+        "frameless": False,
     }
 
 
@@ -90,6 +92,7 @@ def load_config(config_path: Path | None = None) -> AppConfig:
         window_width=int(raw.get("window_width", 600)),
         window_height=int(raw.get("window_height", 400)),
         native=bool(raw.get("native", True)),
+        frameless=bool(raw.get("frameless", False)),
     )
 
 
@@ -109,5 +112,6 @@ def save_config(config: AppConfig, config_path: Path | None = None) -> None:
         "window_width": config.window_width,
         "window_height": config.window_height,
         "native": config.native,
+        "frameless": config.frameless,
     }
     path.write_text(json.dumps(data, ensure_ascii=True, indent=2), encoding="utf-8")

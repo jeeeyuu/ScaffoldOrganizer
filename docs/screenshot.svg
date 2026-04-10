@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400" font-family="Segoe UI, -apple-system, sans-serif">
+  <!-- Window background -->
+  <rect width="600" height="400" fill="#f8fafc"/>
+
+  <!-- Custom title bar (frameless) -->
+  <rect x="0" y="0" width="600" height="24" fill="#334155"/>
+  <text x="8" y="16" fill="#ffffff" font-size="11">ScaffoldOrganizer</text>
+  <text x="557" y="17" fill="#ffffff" font-size="14" font-weight="bold">─</text>
+  <text x="580" y="17" fill="#ffffff" font-size="14" font-weight="bold">✕</text>
+
+  <!-- Input area -->
+  <rect x="8" y="32" width="450" height="48" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="14" y="50" fill="#94a3b8" font-size="10">브레인 덤프를 입력하세요.</text>
+  <text x="14" y="64" fill="#1f2937" font-size="10">- 농진청 과제 보고서 마무리</text>
+  <text x="14" y="76" fill="#1f2937" font-size="10">- 데이터 전처리 코드 리팩토링</text>
+
+  <!-- Submit button -->
+  <rect x="464" y="32" width="60" height="22" fill="#2563eb" rx="4"/>
+  <text x="481" y="47" fill="#ffffff" font-size="11" font-weight="500">입력</text>
+
+  <!-- Continuous toggle -->
+  <rect x="464" y="58" width="22" height="14" fill="#cbd5e1" rx="7"/>
+  <circle cx="471" cy="65" r="6" fill="#ffffff"/>
+  <text x="490" y="69" fill="#475569" font-size="10">연속 입력</text>
+
+  <!-- Preview row -->
+  <text x="8" y="92" fill="#374151" font-size="10">3개 작업이 우선순위 순으로 정리되었습니다.</text>
+  <text x="552" y="92" fill="#94a3b8" font-size="9">사용량: 1.2k</text>
+
+  <!-- Tabs -->
+  <rect x="0" y="100" width="600" height="32" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="0" y="100" width="80" height="32" fill="#ffffff"/>
+  <rect x="0" y="130" width="80" height="2" fill="#2563eb"/>
+  <text x="30" y="120" fill="#2563eb" font-size="11" font-weight="500">ToDo</text>
+  <text x="100" y="120" fill="#64748b" font-size="11">대화 로그</text>
+  <text x="180" y="120" fill="#64748b" font-size="11">Raw 결과</text>
+  <text x="255" y="120" fill="#64748b" font-size="11">GUIDE</text>
+
+  <!-- Table area -->
+  <rect x="8" y="138" width="584" height="220" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+
+  <!-- Table header -->
+  <rect x="8" y="138" width="584" height="26" fill="#f1f5f9"/>
+  <line x1="60" y1="138" x2="60" y2="358" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="260" y1="138" x2="260" y2="358" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="340" y1="138" x2="340" y2="358" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="400" y1="138" x2="400" y2="358" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="450" y1="138" x2="450" y2="358" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="28" y="155" fill="#475569" font-size="10" text-anchor="middle">🔢</text>
+  <text x="160" y="155" fill="#475569" font-size="10" text-anchor="middle">🧠 Task Description</text>
+  <text x="300" y="155" fill="#475569" font-size="10" text-anchor="middle">🛠 Tool</text>
+  <text x="370" y="155" fill="#475569" font-size="10" text-anchor="middle">⏱</text>
+  <text x="425" y="155" fill="#475569" font-size="10" text-anchor="middle">✅</text>
+  <text x="520" y="155" fill="#475569" font-size="10" text-anchor="middle">🧩 Notes / Context</text>
+
+  <!-- Table rows -->
+  <line x1="8" y1="190" x2="592" y2="190" stroke="#f1f5f9" stroke-width="1"/>
+  <line x1="8" y1="226" x2="592" y2="226" stroke="#f1f5f9" stroke-width="1"/>
+  <line x1="8" y1="262" x2="592" y2="262" stroke="#f1f5f9" stroke-width="1"/>
+
+  <!-- Row 1 -->
+  <text x="28" y="180" fill="#1f2937" font-size="10" text-anchor="middle">P0</text>
+  <text x="68" y="180" fill="#1f2937" font-size="10">농진청 보고서 마무리</text>
+  <text x="270" y="180" fill="#1f2937" font-size="10">Word</text>
+  <text x="370" y="180" fill="#1f2937" font-size="10" text-anchor="middle">90</text>
+  <text x="425" y="183" fill="#16a34a" font-size="12" text-anchor="middle">✓</text>
+  <text x="460" y="180" fill="#1f2937" font-size="10">결과 데이터 검토 후 작성</text>
+
+  <!-- Row 2 -->
+  <text x="28" y="216" fill="#1f2937" font-size="10" text-anchor="middle">P1</text>
+  <text x="68" y="216" fill="#1f2937" font-size="10">전처리 코드 리팩토링</text>
+  <text x="270" y="216" fill="#1f2937" font-size="10">Python</text>
+  <text x="370" y="216" fill="#1f2937" font-size="10" text-anchor="middle">60</text>
+  <text x="425" y="219" fill="#cbd5e1" font-size="12" text-anchor="middle">☐</text>
+  <text x="460" y="216" fill="#1f2937" font-size="10">중복 함수 제거 위주</text>
+
+  <!-- Row 3 -->
+  <text x="28" y="252" fill="#1f2937" font-size="10" text-anchor="middle">P2</text>
+  <text x="68" y="252" fill="#1f2937" font-size="10">미팅 자료 정리</text>
+  <text x="270" y="252" fill="#1f2937" font-size="10">Notion</text>
+  <text x="370" y="252" fill="#1f2937" font-size="10" text-anchor="middle">30</text>
+  <text x="425" y="255" fill="#cbd5e1" font-size="12" text-anchor="middle">☐</text>
+  <text x="460" y="252" fill="#1f2937" font-size="10">목요일 회의 전 공유</text>
+
+  <!-- Action buttons row -->
+  <rect x="8" y="368" width="40" height="22" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" rx="3"/>
+  <text x="28" y="383" fill="#374151" font-size="10" text-anchor="middle">저장</text>
+  <rect x="52" y="368" width="56" height="22" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" rx="3"/>
+  <text x="80" y="383" fill="#374151" font-size="10" text-anchor="middle">내보내기</text>
+  <rect x="112" y="368" width="50" height="22" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" rx="3"/>
+  <text x="137" y="383" fill="#374151" font-size="10" text-anchor="middle">MD 복사</text>
+
+  <rect x="488" y="368" width="48" height="22" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" rx="3"/>
+  <text x="512" y="383" fill="#374151" font-size="10" text-anchor="middle">새 세션</text>
+  <rect x="540" y="368" width="52" height="22" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" rx="3"/>
+  <text x="566" y="383" fill="#374151" font-size="10" text-anchor="middle">불러오기</text>
+</svg>
