@@ -382,12 +382,12 @@ def build_ui(config: AppConfig | None = None) -> None:
                 grid_container = ui.html('<div id="task-table"></div>', sanitize=False).classes("w-full").style("height: 300px")
                 with ui.row().classes("w-full justify-between items-center pt-1"):
                     with ui.row().classes("gap-1"):
-                        ui.button("저장", on_click=lambda: save_state()).props("dense flat no-caps").classes("text-xs font-normal")
-                        ui.button("내보내기", on_click=lambda: export_md()).props("dense flat no-caps").classes("text-xs font-normal")
-                        ui.button("MD 복사", on_click=lambda: copy_markdown()).props("dense flat no-caps").classes("text-xs font-normal")
+                        ui.button("저장", on_click=lambda: save_state()).props("dense no-caps").classes("text-xs font-normal")
+                        ui.button("내보내기", on_click=lambda: export_md()).props("dense no-caps").classes("text-xs font-normal")
+                        ui.button("MD 복사", on_click=lambda: copy_markdown()).props("dense no-caps").classes("text-xs font-normal")
                     with ui.row().classes("gap-1"):
-                        ui.button("새 세션", on_click=lambda: new_session()).props("dense flat no-caps").classes("text-xs font-normal")
-                        ui.button("불러오기", on_click=lambda: load_session()).props("dense flat no-caps").classes("text-xs font-normal")
+                        ui.button("새 세션", on_click=lambda: new_session()).props("dense no-caps").classes("text-xs font-normal")
+                        ui.button("불러오기", on_click=lambda: load_session()).props("dense no-caps").classes("text-xs font-normal")
             with ui.tab_panel("대화 로그"):
                 log_area = ui.column().classes("w-full")
             with ui.tab_panel("Raw 결과"):
