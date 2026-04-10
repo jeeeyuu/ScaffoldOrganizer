@@ -379,15 +379,15 @@ def build_ui(config: AppConfig | None = None) -> None:
             ui.tab("GUIDE")
         with ui.tab_panels(tabs, value="ToDo").classes("w-full"):
             with ui.tab_panel("ToDo"):
-                grid_container = ui.html('<div id="task-table"></div>', sanitize=False).classes("w-full").style("height: 350px")
+                grid_container = ui.html('<div id="task-table"></div>', sanitize=False).classes("w-full").style("height: 300px")
                 with ui.row().classes("w-full justify-between items-center pt-1"):
                     with ui.row().classes("gap-1"):
-                        ui.button("저장", on_click=lambda: save_state()).props("dense")
-                        ui.button("내보내기", on_click=lambda: export_md()).props("dense")
-                        ui.button("MD 복사", on_click=lambda: copy_markdown()).props("dense")
+                        ui.button("저장", on_click=lambda: save_state()).props("dense flat no-caps").classes("text-xs font-normal")
+                        ui.button("내보내기", on_click=lambda: export_md()).props("dense flat no-caps").classes("text-xs font-normal")
+                        ui.button("MD 복사", on_click=lambda: copy_markdown()).props("dense flat no-caps").classes("text-xs font-normal")
                     with ui.row().classes("gap-1"):
-                        ui.button("새 세션", on_click=lambda: new_session()).props("dense")
-                        ui.button("불러오기", on_click=lambda: load_session()).props("dense")
+                        ui.button("새 세션", on_click=lambda: new_session()).props("dense flat no-caps").classes("text-xs font-normal")
+                        ui.button("불러오기", on_click=lambda: load_session()).props("dense flat no-caps").classes("text-xs font-normal")
             with ui.tab_panel("대화 로그"):
                 log_area = ui.column().classes("w-full")
             with ui.tab_panel("Raw 결과"):
@@ -437,8 +437,8 @@ def build_ui(config: AppConfig | None = None) -> None:
                 }};
                 const columns = [
                   {{title: "🔢", field: "priority", editor: "input", width: 60, hozAlign: "center"}},
-                  {{title: "🧠 Task Description", field: "task", editor: "input", width: 420, tooltip: cellTooltip}},
-                  {{title: "🛠 Tool", field: "tool", editor: "input", width: 140, tooltip: cellTooltip}},
+                  {{title: "🧠 Task Description", field: "task", editor: "input", width: 200, formatter: "textarea", tooltip: cellTooltip}},
+                  {{title: "🛠 Tool", field: "tool", editor: "input", width: 80, formatter: "textarea", tooltip: cellTooltip}},
                   {{title: "⏱", field: "estimate_min", editor: "input", width: 60, hozAlign: "center"}},
                   {{
                     title: "✅",
@@ -448,16 +448,15 @@ def build_ui(config: AppConfig | None = None) -> None:
                     width: 50,
                     hozAlign: "center",
                   }},
-                  {{title: "🧩 Notes / Context", field: "notes", editor: "input", width: 280, tooltip: cellTooltip}},
+                  {{title: "🧩 Notes / Context", field: "notes", editor: "input", width: 280, formatter: "textarea", tooltip: cellTooltip}},
                 ];
                 window._taskTabulator = new Tabulator("#task-table", {{
                   data,
                   columns,
                   layout: "fitData",
-                  height: "350px",
+                  height: "300px",
                   reactiveData: false,
                   index: "id",
-                  rowHeight: 32,
                 }});
               }} else {{
                 window._taskTabulator.replaceData(data);

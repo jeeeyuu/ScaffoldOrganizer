@@ -136,6 +136,15 @@ SQLite: `data/app.db` (`.gitignore`에 포함)
 2. Markdown 표 추출 → Task 목록 렌더링
 3. 작업 표 편집 → 저장/내보내기
 
+### 세션 복원 (대화 컨텍스트 이어가기)
+
+`세션 불러오기`로 이전 세션을 복원하면 **다음 입력 전송 시 저장된 대화 기록 전체가 API 호출에 자동으로 포함**됩니다. 사용자는 별도 작업 없이 입력만 하면 OpenAI 모델이 이전 맥락을 이어받아 응답합니다.
+
+내부 동작:
+- 세션 로드 시 user/assistant 메시지를 모두 `state.conversation`에 복원
+- 다음 입력 전송 시 `input_messages = [...과거 대화, {새 입력}]` 형태로 묶어 전달
+- Responses API가 전체 메시지 배열을 컨텍스트로 사용
+
 ### Markdown 내보내기 우선순위
 1. 모델 원문에 `🍎`/`🥑` 섹션 포함 시 그대로 저장
 2. `notion_markdown_table` 필드 사용
