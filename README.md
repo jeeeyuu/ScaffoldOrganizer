@@ -1,6 +1,6 @@
 # ScaffoldOrganizer (Developer Guide)
 
-![ScaffoldOrganizer Screenshot](docs/screenshot.png)
+![ScaffoldOrganizer Screenshot](docs/screenshot.svg)
 
 로컬에서 실행되는 브레인 덤프 → 작업 구조화 앱입니다. OpenAI Prompt Asset 기반 Responses API로 자유 형식 입력을 구조화하고, Notion 친화 Markdown으로 내보냅니다.
 

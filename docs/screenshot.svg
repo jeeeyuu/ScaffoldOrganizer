@@ -11,7 +11,7 @@
   <!-- Input area -->
   <rect x="8" y="32" width="450" height="48" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" rx="4"/>
   <text x="14" y="50" fill="#94a3b8" font-size="10">브레인 덤프를 입력하세요.</text>
-  <text x="14" y="64" fill="#1f2937" font-size="10">- 농진청 과제 보고서 마무리</text>
+  <text x="14" y="64" fill="#1f2937" font-size="10">- 프로젝트 과제 보고서 마무리</text>
   <text x="14" y="76" fill="#1f2937" font-size="10">- 데이터 전처리 코드 리팩토링</text>
 
   <!-- Submit button -->
@@ -60,7 +60,7 @@
 
   <!-- Row 1 -->
   <text x="28" y="180" fill="#1f2937" font-size="10" text-anchor="middle">P0</text>
-  <text x="68" y="180" fill="#1f2937" font-size="10">농진청 보고서 마무리</text>
+  <text x="68" y="180" fill="#1f2937" font-size="10">프로젝트 보고서 마무리</text>
   <text x="270" y="180" fill="#1f2937" font-size="10">Word</text>
   <text x="370" y="180" fill="#1f2937" font-size="10" text-anchor="middle">90</text>
   <text x="425" y="183" fill="#16a34a" font-size="12" text-anchor="middle">✓</text>
