@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
-# make_ico.sh — Generate icon.ico from a PNG source
+# make_ico.sh — Generate assets/icon.ico from a PNG source
 # Works on: Linux, macOS, WSL, Git Bash (requires ImageMagick)
 # Usage: ./scripts/make_ico.sh path/to/icon.png
 
 set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+OUTPUT="$PROJECT_ROOT/assets/icon.ico"
 
 SOURCE_ICON="${1:-}"
 
@@ -30,6 +34,7 @@ else
   exit 1
 fi
 
+mkdir -p "$PROJECT_ROOT/assets"
 $CMD "$SOURCE_ICON" \
   \( -clone 0 -resize 16x16 \) \
   \( -clone 0 -resize 32x32 \) \
@@ -37,5 +42,5 @@ $CMD "$SOURCE_ICON" \
   \( -clone 0 -resize 64x64 \) \
   \( -clone 0 -resize 128x128 \) \
   \( -clone 0 -resize 256x256 \) \
-  -delete 0 icon.ico
-echo "Created icon.ico"
+  -delete 0 "$OUTPUT"
+echo "Created $OUTPUT"

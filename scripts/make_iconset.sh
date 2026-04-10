@@ -7,8 +7,12 @@
 
 set -euo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+ICONSET_DIR="$PROJECT_ROOT/assets/icon.iconset"
+OUTPUT="$PROJECT_ROOT/assets/icon.icns"
+
 SOURCE_ICON="${1:-}"
-ICONSET_DIR="icon.iconset"
 
 if [[ -z "$SOURCE_ICON" ]]; then
   echo "Usage: $0 <source_icon.png>" >&2
@@ -30,8 +34,9 @@ if command -v sips &>/dev/null && command -v iconutil &>/dev/null; then
       --out "${ICONSET_DIR}/icon_${size}x${size}.png" >/dev/null
   done
 
-  iconutil -c icns "$ICONSET_DIR" -o icon.icns
-  echo "Created icon.icns (macOS)"
+  mkdir -p "$PROJECT_ROOT/assets"
+  iconutil -c icns "$ICONSET_DIR" -o "$OUTPUT"
+  echo "Created $OUTPUT (macOS)"
   exit 0
 fi
 
@@ -60,7 +65,8 @@ for size in 16 32 48 128 256 512; do
     "${ICONSET_DIR}/icon_${size}x${size}.png"
 done
 
-png2icns icon.icns \
+mkdir -p "$PROJECT_ROOT/assets"
+png2icns "$OUTPUT" \
   "${ICONSET_DIR}/icon_16x16.png" \
   "${ICONSET_DIR}/icon_32x32.png" \
   "${ICONSET_DIR}/icon_48x48.png" \
@@ -68,4 +74,4 @@ png2icns icon.icns \
   "${ICONSET_DIR}/icon_256x256.png" \
   "${ICONSET_DIR}/icon_512x512.png"
 
-echo "Created icon.icns (Linux/WSL)"
+echo "Created $OUTPUT (Linux/WSL)"

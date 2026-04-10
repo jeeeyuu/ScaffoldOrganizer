@@ -11,7 +11,7 @@ dist/
 *.spec.bak
 
 # 아이콘 생성 중간 산출물
-icon.iconset/
+assets/icon.iconset/
 
 # Python
 __pycache__/

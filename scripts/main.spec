@@ -1,9 +1,14 @@
 # -*- mode: python ; coding: utf-8 -*-
 
+import os
 import sys
 from PyInstaller.utils.hooks import collect_data_files, copy_metadata
 
-_icon = "icon.ico" if sys.platform == "win32" else "icon.icns"
+_root = os.path.abspath(os.path.join(SPECPATH, ".."))
+_main = os.path.join(_root, "app", "main.py")
+_icon = os.path.join(
+    _root, "assets", "icon.ico" if sys.platform == "win32" else "icon.icns"
+)
 
 _datas = []
 _datas += collect_data_files('nicegui')
@@ -12,8 +17,8 @@ _datas += copy_metadata('nicegui')
 _datas += copy_metadata('pywebview')
 
 a = Analysis(
-    ['main.py'],
-    pathex=[],
+    [_main],
+    pathex=[_root],
     binaries=[],
     datas=_datas,
     hiddenimports=['nicegui', 'webview'],

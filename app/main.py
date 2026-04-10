@@ -2,9 +2,9 @@ import json
 
 from nicegui import ui
 
-from app.config import load_config
-from app.db import connect, init_db, set_setting
-from app.ui import build_ui
+from .config import load_config
+from .db import connect, init_db, set_setting
+from .ui import build_ui
 
 
 def main() -> None:
@@ -37,4 +37,5 @@ def main() -> None:
     ui.run(**run_kwargs)
 
 
-main()
+if __name__ in {"__main__", "__mp_main__"}:
+    main()
