@@ -16,8 +16,9 @@ class AppConfig:
     prompt_variables: dict
     default_model: str
     runtime_overrides: str
-    window_width: int = 1200
-    window_height: int = 450
+    window_width: int = 600
+    window_height: int = 400
+    native: bool = True
 
 
 APP_NAME = "ScaffoldOrganizer"
@@ -50,8 +51,9 @@ def _default_config_data() -> dict:
         "prompt_variables": {},
         "default_model": "gpt-4.1",
         "runtime_overrides": "",
-        "window_width": 1200,
-        "window_height": 450,
+        "window_width": 600,
+        "window_height": 400,
+        "native": True,
     }
 
 
@@ -85,8 +87,9 @@ def load_config(config_path: Path | None = None) -> AppConfig:
         prompt_variables=raw.get("prompt_variables", {}),
         default_model=raw.get("default_model", "gpt-4.1"),
         runtime_overrides=raw.get("runtime_overrides", ""),
-        window_width=int(raw.get("window_width", 1200)),
-        window_height=int(raw.get("window_height", 450)),
+        window_width=int(raw.get("window_width", 600)),
+        window_height=int(raw.get("window_height", 400)),
+        native=bool(raw.get("native", True)),
     )
 
 
@@ -105,5 +108,6 @@ def save_config(config: AppConfig, config_path: Path | None = None) -> None:
         "runtime_overrides": config.runtime_overrides,
         "window_width": config.window_width,
         "window_height": config.window_height,
+        "native": config.native,
     }
     path.write_text(json.dumps(data, ensure_ascii=True, indent=2), encoding="utf-8")

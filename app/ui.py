@@ -379,7 +379,7 @@ def build_ui(config: AppConfig | None = None) -> None:
             ui.tab("GUIDE")
         with ui.tab_panels(tabs, value="ToDo").classes("w-full"):
             with ui.tab_panel("ToDo"):
-                grid_container = ui.html('<div id="task-table"></div>', sanitize=False).classes("w-full").style("height: 160px")
+                grid_container = ui.html('<div id="task-table"></div>', sanitize=False).classes("w-full").style("height: 350px")
                 with ui.row().classes("w-full justify-between items-center pt-1"):
                     with ui.row().classes("gap-1"):
                         ui.button("저장", on_click=lambda: save_state()).props("dense")
@@ -431,26 +431,30 @@ def build_ui(config: AppConfig | None = None) -> None:
             (() => {{
               const data = {payload};
               if (!window._taskTabulator) {{
+                const cellTooltip = function(e, cell){{
+                  const v = cell.getValue();
+                  return v ? String(v) : "";
+                }};
                 const columns = [
-                  {{title: "🔢 Priority", field: "priority", editor: "input", width: 110}},
-                  {{title: "🧠 Task Description", field: "task", editor: "input", widthGrow: 2}},
-                  {{title: "🛠 Tool", field: "tool", editor: "input", width: 160}},
-                  {{title: "⏱ Time", field: "estimate_min", editor: "input", width: 100}},
+                  {{title: "🔢", field: "priority", editor: "input", width: 60, hozAlign: "center"}},
+                  {{title: "🧠 Task Description", field: "task", editor: "input", width: 420, tooltip: cellTooltip}},
+                  {{title: "🛠 Tool", field: "tool", editor: "input", width: 140, tooltip: cellTooltip}},
+                  {{title: "⏱", field: "estimate_min", editor: "input", width: 60, hozAlign: "center"}},
                   {{
-                    title: "✅ Status",
+                    title: "✅",
                     field: "done",
                     formatter: "tickCross",
                     editor: true,
-                    width: 110,
+                    width: 50,
                     hozAlign: "center",
                   }},
-                  {{title: "🧩 Notes / Context", field: "notes", editor: "input", widthGrow: 2}},
+                  {{title: "🧩 Notes / Context", field: "notes", editor: "input", width: 280, tooltip: cellTooltip}},
                 ];
                 window._taskTabulator = new Tabulator("#task-table", {{
                   data,
                   columns,
-                  layout: "fitColumns",
-                  height: "160px",
+                  layout: "fitData",
+                  height: "350px",
                   reactiveData: false,
                   index: "id",
                   rowHeight: 32,

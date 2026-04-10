@@ -16,5 +16,6 @@
   "default_model": "gpt-4.1",
   "runtime_overrides": "",
   "window_width": 600,
-  "window_height": 400
+  "window_height": 400,
+  "native": true
 }

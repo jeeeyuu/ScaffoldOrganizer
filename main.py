@@ -25,13 +25,15 @@ def main() -> None:
         for key, value in settings_map.items():
             set_setting(conn, key, value)
 
-    ui.run(
+    run_kwargs = dict(
         root=lambda: build_ui(config),
         title="ScaffoldOrganizer",
         reload=False,
-        native=True,
-        window_size=(config.window_width, config.window_height),
+        native=config.native,
     )
+    if config.native:
+        run_kwargs["window_size"] = (config.window_width, config.window_height)
+    ui.run(**run_kwargs)
 
 
 main()

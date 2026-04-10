@@ -7,14 +7,16 @@ _icon = "icon.ico" if sys.platform == "win32" else "icon.icns"
 
 _datas = []
 _datas += collect_data_files('nicegui')
+_datas += collect_data_files('webview')
 _datas += copy_metadata('nicegui')
+_datas += copy_metadata('pywebview')
 
 a = Analysis(
     ['main.py'],
     pathex=[],
     binaries=[],
     datas=_datas,
-    hiddenimports=['nicegui'],
+    hiddenimports=['nicegui', 'webview'],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],

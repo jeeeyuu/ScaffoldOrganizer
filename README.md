@@ -24,10 +24,16 @@
 
 | 환경 | 설치 방법 |
 |---|---|
-| Windows | `pip install pywebview` |
+| Windows | `pip install pythonnet pywebview` |
 | macOS | `pip install pywebview` |
 | Linux / WSL | `pip install pywebview` + `sudo apt install python3-gi python3-gi-cairo gir1.2-gtk-3.0 gir1.2-webkit2-4.0` |
 
+> **Windows 주의사항:**  
+> - `pywebview`는 내부적으로 `pythonnet`에 의존합니다.  
+> - `pythonnet`은 **Python 3.12 이하**에서만 pre-built wheel이 제공되어 문제없이 설치됩니다.  
+> - Python 3.13 이상에서는 .NET SDK 설치 후 소스 빌드가 필요하거나 설치가 실패할 수 있습니다.  
+> - `pywebview` 설치가 어려운 경우 `config.json`에서 `"native": false`로 설정하면 브라우저 모드로 대체 실행됩니다.  
+>
 > WSL에서 GUI 창이 뜨지 않는 경우 Windows 쪽 Python 환경에서 직접 실행하는 것을 권장합니다.
 
 ## 빠른 시작
