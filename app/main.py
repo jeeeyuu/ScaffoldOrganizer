@@ -2,9 +2,9 @@ import json
 
 from nicegui import ui
 
-from .config import load_config
-from .db import connect, init_db, set_setting
-from .ui import build_ui
+from app.config import load_config
+from app.db import connect, init_db, set_setting
+from app.ui import build_ui
 
 
 def main() -> None:

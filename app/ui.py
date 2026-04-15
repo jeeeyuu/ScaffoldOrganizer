@@ -218,12 +218,12 @@ def _format_usage(usage: dict | None) -> str:
 
 def _export_markdown_content(state: AppState) -> str:
     raw = state.raw_output.strip()
-    if "## 🍎" in raw or "## 🥑" in raw:
+    # raw가 JSON 문자열이 아니고 실제 Markdown인 경우에만 사용
+    if raw and not raw.startswith(("{", "[")) and ("## 🍎" in raw or "## 🥑" in raw):
         return raw
-    if state.pending_markdown.strip():
-        return state.pending_markdown.strip()
-    if state.notion_markdown_table.strip():
-        return _build_markdown_from_structured(state)
+    pending = state.pending_markdown.strip()
+    if pending and not pending.startswith(("{", "[")):
+        return pending
     return _build_markdown_from_structured(state)
 
 
@@ -233,23 +233,33 @@ def _build_markdown_from_structured(state: AppState) -> str:
     top_priority = structured.get("top_priority") or []
     table = structured.get("notion_markdown_table") or build_markdown_table(state.tasks)
 
-    lines = []
+    lines: list[str] = []
+
+    # 1. 브레인덤프 분류 섹션
     lines.append("## 🍎 브레인덤프 분류 및 구조화")
-    if state.summary:
-        lines.append(state.summary)
-    if category_sections:
-        lines.append("")
-        for section in category_sections:
-            if isinstance(section, str) and section.strip():
-                lines.append(section)
     lines.append("")
-    lines.append("## 🥑 우선순위 조정 & 실행 원자화")
-    if top_priority:
-        for item in top_priority:
-            lines.append(f"- {item}")
+    if state.summary:
+        lines.append(state.summary.strip())
         lines.append("")
+    for section in category_sections:
+        if isinstance(section, str) and section.strip():
+            lines.append(section.strip())
+            lines.append("")
+
+    # 2. 우선순위 섹션
+    lines.append("## 🥑 우선순위 조정 & 실행 원자화")
+    lines.append("")
+    for item in top_priority:
+        if str(item).strip():
+            lines.append(f"- {str(item).strip()}")
+    if top_priority:
+        lines.append("")
+
+    # 3. 작업 표
     if table:
         lines.append(table.strip())
+        lines.append("")
+
     return "\n".join(lines).strip() + "\n"
 
 
